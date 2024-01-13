@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "testing-30e80": {
+      "hosting": {
+        "firetest": [
+          "testing-30e80"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "testing-30e80"
+  }
+}
