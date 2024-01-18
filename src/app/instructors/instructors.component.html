@@ -1,0 +1,37 @@
+<h1> Upload Instructors Data</h1>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+ <h2> <label for="ID">ID: </label></h2>
+  <input id="ID" type="text" formControlName="ID"> <br>
+ <br> <h2><label for="name">Name: </label> </h2>
+  <input id="name" type="text" formControlName="name">
+    <h2> <label for="phoneNumber">phone Number: </label></h2>
+  <input id="phoneNumber" type="text" formControlName="phoneNumber">
+      <h2> <label for="photoUrl">photo Url: </label></h2>
+  <input id="photoUrl" type="text" formControlName="photoUrl"><br>
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
+
+
+  <div class="text" >
+
+    <table>
+      <tr>
+        <th>id</th>
+        <th>ID</th>
+        <th>Photo</th>
+        <th>Name of Instructor</th>
+        <th>Phone Number</th>
+        <th>Action</th>
+      </tr>
+      @for (ins of instructor$ | async; track ins.ID){ <tr >
+        <td> {{ins.id}}</td>
+        <td> {{ins.ID}}</td>
+        <td> <img [src]="ins.photoUrl" width="150" height="150"></td>
+        <td> {{ins.name}}</td>
+        <td>  {{ins.phoneNumber}}</td>
+        <td> <button (click)="deleteInstructor(ins)" class="btn btn-danger">Delete</button></td>
+      </tr>
+      }
+    </table>
+
+  </div>

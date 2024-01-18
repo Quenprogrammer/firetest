@@ -1,0 +1,14 @@
+<ol>
+  <li class="text" *ngFor="let course of courses$ | async">
+    Course:  {{course.tittle}}
+    <div>
+      <h4>Topics</h4>
+      <ul>
+        @for (topic of course.topics; track topic){
+          <li> {{topic}} </li>
+        }
+      </ul>
+    </div>
+
+  </li>
+</ol>

@@ -1,28 +1,24 @@
 import {Component, inject} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {RouterLink, RouterOutlet} from '@angular/router';
 import {collection, collectionData, Firestore, Timestamp} from "@angular/fire/firestore";
 import {Observable} from "rxjs";
-
+import {AsyncPipe, NgForOf} from "@angular/common";
 interface OnlineCourses {
   tittle: string,
   topics: string[],
   instructor: string,
   created: Timestamp
 }
-
 @Component({
-  selector: 'app-root',
+  selector: 'app-courses',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [
+    AsyncPipe,
+    NgForOf
+  ],
+  templateUrl: './courses.component.html',
+  styleUrl: './courses.component.css'
 })
-export class AppComponent {
-
-
-  title = 'firetest';
-
+export class CoursesComponent {
   firestore: Firestore = inject(Firestore)
   courses$: Observable<OnlineCourses[]>;
   sampleTopics: string [] = ['test1', 'test2'];

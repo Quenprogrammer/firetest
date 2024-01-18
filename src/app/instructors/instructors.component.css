@@ -1,0 +1,11 @@
+input[type=text] {
+  width: 50%;
+  padding: 12px 20px;
+  margin-left: 50px;
+  box-sizing: border-box;
+}
+h2 {
+  margin-left: 40px;
+
+  color: #4CAF50;
+}
